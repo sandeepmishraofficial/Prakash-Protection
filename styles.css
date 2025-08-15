@@ -1,0 +1,197 @@
+/* Custom CSS for Prakash Protection */
+
+:root {
+  --primary-color: #0066cc;
+  --primary-light: #e6f2ff;
+  --secondary-color: #f8f9fa;
+  --dark-color: #212529;
+  --text-muted: #6c757d;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+}
+
+/* Navigation */
+.navbar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 120px 0 80px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.badge.bg-primary-light {
+  background-color: var(--primary-light) !important;
+  color: var(--primary-color) !important;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+/* Cards */
+.hover-card {
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.bg-primary-light {
+  background-color: var(--primary-light) !important;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0052a3;
+  border-color: #0052a3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+}
+
+.btn-outline-primary {
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+}
+
+/* Modal Styles */
+.modal-content {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  background: linear-gradient(135deg, var(--primary-color), #0052a3);
+  color: white;
+  border-radius: 15px 15px 0 0;
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+}
+
+.input-group .btn-outline-secondary {
+  border-color: #ced4da;
+}
+
+.input-group .btn-outline-secondary:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 100px 0 60px;
+    text-align: center;
+  }
+
+  .display-3 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .modal-dialog {
+    margin: 1rem;
+  }
+}
+
+/* Success/Error Messages */
+.alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+/* Loading Spinner */
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Password Strength Indicator */
+.password-strength {
+  height: 4px;
+  border-radius: 2px;
+  margin-top: 5px;
+  transition: all 0.3s ease;
+}
+
+.password-strength.weak {
+  background-color: #dc3545;
+  width: 33%;
+}
+
+.password-strength.medium {
+  background-color: #ffc107;
+  width: 66%;
+}
+
+.password-strength.strong {
+  background-color: #28a745;
+  width: 100%;
+}

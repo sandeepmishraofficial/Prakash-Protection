@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prakash Protection Private Limited - Professional Security Services</title>
+    <meta name="description" content="Leading security guard services provider offering professional protection solutions for businesses, events, and residential properties.">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Replaced Lucide with Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#" >
+                <!-- Updated to Font Awesome shield icon -->
+                <img src="./image/Prakash Protection Private Limited.jpg" style="height: 40px;" alt="Prakash Protection">
+                Prakash Protection
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <!-- Added login/signup buttons -->
+                    <li class="nav-item">
+                        <button class="btn btn-outline-primary ms-2" onclick="showLoginModal()">
+                            <i class="fas fa-sign-in-alt me-1"></i>Login
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary ms-2" onclick="showSignupModal()">
+                            <i class="fas fa-user-plus me-1"></i>Sign Up
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">
+                        <i class="fas fa-sign-in-alt me-2 text-primary"></i>
+                        Login to Your Account
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="fas fa-envelope me-1"></i>Email Address
+                            </label>
+                            <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="fas fa-lock me-1"></i>Password
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('loginPassword', this)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">
+                            <i class="fas fa-sign-in-alt me-1"></i>Login
+                        </button>
+                        <div class="text-center">
+                            <a href="#" class="text-decoration-none" onclick="showForgotPassword()">
+                                <i class="fas fa-question-circle me-1"></i>Forgot Password?
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <p class="mb-0">Don't have an account? 
+                        <a href="#" onclick="switchToSignup()" class="text-decoration-none">Sign up here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div class="modal fade" id="signupModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title">
+                        <i class="fas fa-user-plus me-2 text-primary"></i>
+                        Create Your Account
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="signupForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-user me-1"></i>First Name
+                                </label>
+                                <input type="text" class="form-control" id="signupFirstName" placeholder="First name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-user me-1"></i>Last Name
+                                </label>
+                                <input type="text" class="form-control" id="signupLastName" placeholder="Last name" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="fas fa-envelope me-1"></i>Email Address
+                            </label>
+                            <input type="email" class="form-control" id="signupEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="fas fa-phone me-1"></i>Phone Number
+                            </label>
+                            <input type="tel" class="form-control" id="signupPhone" placeholder="+91 98765 43210" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="fas fa-lock me-1"></i>Password
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="signupPassword" placeholder="Create a password" required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('signupPassword', this)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="form-text">Password must be at least 8 characters long</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">
+                                <i class="fas fa-lock me-1"></i>Confirm Password
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your password" required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('confirmPassword', this)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="agreeTerms" required>
+                            <label class="form-check-label" for="agreeTerms">
+                                I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> and 
+                                <a href="#" class="text-decoration-none">Privacy Policy</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 mb-3">
+                            <i class="fas fa-user-plus me-1"></i>Create Account
+                        </button>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <p class="mb-0">Already have an account? 
+                        <a href="#" onclick="switchToLogin()" class="text-decoration-none">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <span class="badge bg-primary-light text-primary mb-4">Professional Security Services</span>
+                    <h1 class="display-3 fw-bold mb-4">
+                        Your Safety is Our
+                        <span class="text-primary d-block">Priority</span>
+                    </h1>
+                    <p class="lead text-muted mb-5">
+                        Prakash Protection Private Limited provides comprehensive security guard services with trained
+                        professionals, 24/7 monitoring, and customized protection solutions for your peace of mind.
+                    </p>
+                    <div class="d-flex flex-column flex-sm-row gap-3">
+                        <a href="#contact" class="btn btn-primary btn-lg">
+                            <!-- Updated to Font Awesome phone icon -->
+                            <i class="fas fa-phone me-2"></i>
+                            Call Now
+                        </a>
+                        <a href="#about" class="btn btn-outline-primary btn-lg">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <div class="position-relative">
+                        <img src="./image/confident-security-guard.png" alt="Professional Security Guard" class="img-fluid rounded shadow-lg">
+                        <div class="position-absolute bg-primary text-white p-4 rounded shadow" style="bottom: -20px; left: -20px;">
+                            <div class="h3 mb-0">24/7</div>
+                            <div class="small">Protection</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold mb-4">Our Security Services</h2>
+                <p class="lead text-muted">
+                    Comprehensive protection solutions tailored to meet your specific security needs
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 hover-card">
+                        <div class="card-header bg-white border-0">
+                            <!-- Updated to Font Awesome shield icon -->
+                            <i class="fas fa-shield-alt text-primary mb-3" style="font-size: 48px;"></i>
+                            <h5 class="card-title">Corporate Security</h5>
+                            <p class="card-text text-muted">Professional security guards for offices, buildings, and corporate facilities</p>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled text-muted small">
+                                <li>• Access control management</li>
+                                <li>• Visitor screening</li>
+                                <li>• Emergency response</li>
+                                <li>• Asset protection</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 hover-card">
+                        <div class="card-header bg-white border-0">
+                            <!-- Updated to Font Awesome users icon -->
+                            <i class="fas fa-users text-primary mb-3" style="font-size: 48px;"></i>
+                            <h5 class="card-title">Event Security</h5>
+                            <p class="card-text text-muted">Specialized security services for events, conferences, and gatherings</p>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled text-muted small">
+                                <li>• Crowd management</li>
+                                <li>• VIP protection</li>
+                                <li>• Perimeter security</li>
+                                <li>• Emergency coordination</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 hover-card">
+                        <div class="card-header bg-white border-0">
+                            <!-- Updated to Font Awesome clock icon -->
+                            <i class="fas fa-clock text-primary mb-3" style="font-size: 48px;"></i>
+                            <h5 class="card-title">24/7 Monitoring</h5>
+                            <p class="card-text text-muted">Round-the-clock surveillance and security monitoring services</p>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled text-muted small">
+                                <li>• CCTV monitoring</li>
+                                <li>• Alarm response</li>
+                                <li>• Regular patrols</li>
+                                <li>• Incident reporting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 hover-card">
+                        <div class="card-header bg-white border-0">
+                            <!-- Updated to Font Awesome award icon -->
+                            <i class="fas fa-award text-primary mb-3" style="font-size: 48px;"></i>
+                            <h5 class="card-title">Residential Security</h5>
+                            <p class="card-text text-muted">Personal protection services for homes and residential complexes</p>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled text-muted small">
+                                <li>• Gated community security</li>
+                                <li>• Personal bodyguards</li>
+                                <li>• Property surveillance</li>
+                                <li>• Emergency response</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 hover-card">
+                        <div class="card-header bg-white border-0">
+                            <!-- Updated to Font Awesome industry icon -->
+                            <i class="fas fa-industry text-primary mb-3" style="font-size: 48px;"></i>
+                            <h5 class="card-title">Industrial Security</h5>
+                            <p class="card-text text-muted">Specialized security for factories, warehouses, and industrial sites</p>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled text-muted small">
+                                <li>• Perimeter protection</li>
+                                <li>• Equipment security</li>
+                                <li>• Safety compliance</li>
+                                <li>• Access management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 hover-card">
+                        <div class="card-header bg-white border-0">
+                            <!-- Updated to Font Awesome store icon -->
+                            <i class="fas fa-store text-primary mb-3" style="font-size: 48px;"></i>
+                            <h5 class="card-title">Retail Security</h5>
+                            <p class="card-text text-muted">Loss prevention and customer safety for retail establishments</p>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled text-muted small">
+                                <li>• Loss prevention</li>
+                                <li>• Customer assistance</li>
+                                <li>• Cash handling security</li>
+                                <li>• Theft deterrence</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="display-4 fw-bold mb-4">Why Choose Prakash Protection?</h2>
+                    <p class="lead text-muted mb-5">
+                        With years of experience in the security industry, we provide reliable, professional, and customized
+                        security solutions that give you complete peace of mind.
+                    </p>
+
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="d-flex">
+                                <div class="bg-primary-light p-3 rounded me-4">
+                                    <!-- Updated to Font Awesome shield icon -->
+                                    <i class="fas fa-shield-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5>Trained Professionals</h5>
+                                    <p class="text-muted">All our security personnel undergo rigorous training and background verification.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="d-flex">
+                                <div class="bg-primary-light p-3 rounded me-4">
+                                    <!-- Updated to Font Awesome clock icon -->
+                                    <i class="fas fa-clock text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5>24/7 Availability</h5>
+                                    <p class="text-muted">Round-the-clock security services with immediate response capabilities.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="d-flex">
+                                <div class="bg-primary-light p-3 rounded me-4">
+                                    <!-- Updated to Font Awesome award icon -->
+                                    <i class="fas fa-award text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5>Licensed & Insured</h5>
+                                    <p class="text-muted">Fully licensed security agency with comprehensive insurance coverage.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mt-5 mt-lg-0">
+                    <img src="./image/security-team-meeting.png" alt="Security Team" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold mb-4">What Our Clients Say</h2>
+                <p class="lead text-muted">Trusted by businesses and individuals across the region</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <!-- Updated to Font Awesome star icons -->
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="text-muted mb-4">
+                                "Prakash Protection has been securing our office complex for over 2 years. Their professionalism and
+                                reliability are unmatched."
+                            </p>
+                            <div>
+                                <h6 class="mb-0">Rajesh Kumar</h6>
+                                <small class="text-muted">Property Manager, Tech Park</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="text-muted mb-4">
+                                "Excellent service for our wedding event. The security team was professional and ensured everything
+                                went smoothly."
+                            </p>
+                            <div>
+                                <h6 class="mb-0">Priya Sharma</h6>
+                                <small class="text-muted">Event Organizer</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning me-1"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="text-muted mb-4">
+                                "Their 24/7 monitoring service gives us complete peace of mind. Highly recommend their services."
+                            </p>
+                            <div>
+                                <h6 class="mb-0">Amit Patel</h6>
+                                <small class="text-muted">Retail Chain Owner</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold mb-4">Get in Touch</h2>
+                <p class="lead text-muted">Ready to secure your property? Contact us for a free consultation</p>
+            </div>
+
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <h3 class="mb-4">Contact Information</h3>
+
+                    <div class="row g-4">
+                        <div class="col-12">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary-light p-3 rounded me-4">
+                                    <!-- Updated to Font Awesome phone icon -->
+                                    <i class="fas fa-phone text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Phone</h6>
+                                    <p class="text-muted mb-0">+91 98765 43210</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary-light p-3 rounded me-4">
+                                    <!-- Updated to Font Awesome envelope icon -->
+                                    <i class="fas fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Email</h6>
+                                    <p class="text-muted mb-0">info@prakashprotection.com</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary-light p-3 rounded me-4">
+                                    <!-- Updated to Font Awesome map marker icon -->
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Address</h6>
+                                    <p class="text-muted mb-0">123 Security Street, Business District, Mumbai - 400001</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <h5 class="mb-3">Business Hours</h5>
+                        <div class="text-muted">
+                            <p class="mb-1">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p class="mb-1">Saturday: 9:00 AM - 4:00 PM</p>
+                            <p class="mb-1">Sunday: Emergency calls only</p>
+                            <p class="text-primary fw-semibold">24/7 Emergency Response Available</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-1">Request a Quote</h5>
+                            <p class="card-text text-muted small mb-0">Fill out the form below and we'll get back to you within 24 hours</p>
+                        </div>
+                        <div class="card-body">
+                            <form id="contactForm">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">First Name</label>
+                                        <input type="text" class="form-control" name="firstName" placeholder="John" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" name="lastName" placeholder="Doe" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" name="email" placeholder="john@example.com" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Phone</label>
+                                        <input type="tel" class="form-control" name="phone" placeholder="+91 98765 43210" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Service Required</label>
+                                        <select class="form-select" name="service" required>
+                                            <option value="">Select a service</option>
+                                            <option value="corporate">Corporate Security</option>
+                                            <option value="event">Event Security</option>
+                                            <option value="residential">Residential Security</option>
+                                            <option value="industrial">Industrial Security</option>
+                                            <option value="retail">Retail Security</option>
+                                            <option value="monitoring">24/7 Monitoring</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label">Message</label>
+                                        <textarea class="form-control" name="message" rows="4" placeholder="Tell us about your security requirements..." required></textarea>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3">
+                   <div class="d-flex align-items-center mb-3">
+                  <!-- Updated to Font Awesome shield icon -->
+                    <img src="./image/Prakash Protection Private Limited.jpg" style="height: 20px;" alt="Prakash Protection" class="me-2">
+                     <h5 class="mb-1">Prakash Protection</h5>
+                    </div>
+                    <p class="text-white-50">
+                        Professional security services you can trust. Protecting what matters most to you.
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="mb-3">Services</h6>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-1">Corporate Security</li>
+                        <li class="mb-1">Event Security</li>
+                        <li class="mb-1">Residential Security</li>
+                        <li class="mb-1">Industrial Security</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="mb-3">Company</h6>
+                    <ul class="list-unstyled text-white-50">
+                        <li class="mb-1">About Us</li>
+                        <li class="mb-1">Our Team</li>
+                        <li class="mb-1">Careers</li>
+                        <li class="mb-1">Contact</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="mb-3">Contact</h6>
+                    <div class="text-white-50">
+                        <p class="mb-1">+91 98765 43210</p>
+                        <p class="mb-1">info@prakashprotection.com</p>
+                        <p class="mb-1">Mumbai, Maharashtra</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-4 border-secondary">
+            <div class="text-center text-white-50">
+                <p class="mb-0">&copy; 2024 Prakash Protection Private Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
